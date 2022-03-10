@@ -672,7 +672,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
     }
 
     const datas = this.getDatas(data);
-    const xMax = this.getXMaxValues(data);
+    const xMax = dataset.data.length-1;
 
     const x = (i: number) =>
       Math.floor(paddingRight + (i * (width - paddingRight)) / xMax);
