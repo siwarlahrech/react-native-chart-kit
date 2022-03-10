@@ -278,7 +278,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
         return null;
       }
     } = this.props;
-    const xMax = this.getXMaxValues(data);
+    const xMax = dataset.data.length - 1;
     data.forEach(dataset => {
       if (dataset.withDots == false) return;
 
@@ -616,7 +616,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
     const output = [];
     const datas = this.getDatas(data);
     const baseHeight = this.calcBaseHeight(datas, height);
-    const xMax = this.getXMaxValues(data);
+    const xMax = dataset.data.length - 1;
 
     let lastPoint: string;
 
@@ -748,7 +748,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
     useColorFromDataset: AbstractChartConfig["useShadowColorFromDataset"];
   }) =>
     data.map((dataset, index) => {
-      const xMax = this.getXMaxValues(data);
+      const xMax = dataset.data.length - 1;
       const d =
         this.getBezierLinePoints(dataset, {
           width,
